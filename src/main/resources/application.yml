@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${URL_JDBC}
+    hikari:
+      username: ${USERNAME}
+      password: ${PASSWORD}
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+server:
+  port: 8081
