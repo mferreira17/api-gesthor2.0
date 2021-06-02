@@ -7,7 +7,14 @@ spring:
       driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
+springfox:
+  documentation:
+    swagger-ui:
+      base-url: /documentation
+api:
+  secret: ${API_SECRET}
 server:
   port: 8081
+

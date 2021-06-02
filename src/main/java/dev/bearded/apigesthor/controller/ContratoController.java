@@ -3,6 +3,7 @@ package dev.bearded.apigesthor.controller;
 import dev.bearded.apigesthor.model.Contrato;
 import dev.bearded.apigesthor.model.dto.ContratoDTO;
 import dev.bearded.apigesthor.repository.ContratoRepository;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -18,11 +19,13 @@ public class ContratoController {
 
     private ContratoRepository contratoRepository;
     private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     public ContratoController(ContratoRepository contratoRepository) {
 
         this.contratoRepository = contratoRepository;
     }
 
+    @ApiOperation("Retorna todos os contratos existentes na base de dados")
     @GetMapping(value = "/lista-contratos", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ContratoDTO>> getListaContratos() {
         log.info("BUSCANDO CONTRATOS...");
@@ -32,8 +35,10 @@ public class ContratoController {
         return ResponseEntity.ok(listaContratosDTO);
     }
 
+    @ApiOperation("Salva um novo contrato na base de dados")
     @PostMapping(value = "/salvar-novo-contrato")
     public ResponseEntity salvarNovoContrato(@RequestBody Contrato contrato) throws Exception {
+
         log.info("SALVANDO NOVO CONTRATO NA BASE...");
         log.info("Contrato .: " + contrato.toString());
 

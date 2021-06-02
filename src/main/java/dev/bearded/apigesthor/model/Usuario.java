@@ -11,6 +11,9 @@ public class Usuario extends BaseEntity {
     private String email;
     private String senha;
 
+    public Usuario() {
+    }
+
     public Usuario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
